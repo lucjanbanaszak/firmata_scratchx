@@ -721,7 +721,7 @@
   var descriptor = {
     blocks: blocks[lang],
     menus: menus[lang],
-    url: 'http://khanning.github.io/scratch-arduino-extension'
+    url: 'http://github.com/lucjanbanaszak/firmata_scratchx'
   };
 
   ScratchExtensions.register('Arduino', descriptor, ext, {type:'serial'});

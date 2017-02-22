@@ -223,7 +223,9 @@
   }
 
   function processInput(inputData) {
-    for (var i=0; i < inputData.length; i++) {
+      console.log('processInput(' +inputData.length+')');
+	  
+      for (var i = 0; i < inputData.length; i++) {
       if (parsingSysex) {
         if (inputData[i] == END_SYSEX) {
           parsingSysex = false;
@@ -504,7 +506,7 @@
     device = potentialDevices.shift();
     if (!device) return;
 
-    device.open({ stopBits: 0, bitRate: 57600, ctsFlowControl: 0 });
+    device.open({ stopBits: 1, bitRate: 57600, ctsFlowControl: 0 });
     console.log('Attempting connection with ' + device.id);
     device.set_receive_handler(function(data) {
       var inputData = new Uint8Array(data);
@@ -1097,7 +1099,7 @@
   var descriptor = {
     blocks: blocks[lang],
     menus: menus[lang],
-    url: 'http://khanning.github.io/scratch-arduino-extension'
+    url: 'http://github.com/lucjanbanaszak/firmata_scratchx'
   };
 
   ScratchExtensions.register('Arduino', descriptor, ext, {type:'serial'});
